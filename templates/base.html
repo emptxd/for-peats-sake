@@ -1,0 +1,91 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <title>{% block title %}For Peat's Sake{% endblock %}</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+      <!-- Tailwind CSS CDN -->
+      <script src="https://cdn.tailwindcss.com"></script>
+
+      {% block head %}{% endblock %}
+      <script>
+        // Scroll effect for navbar
+        window.addEventListener('scroll', () => {
+          const navbar = document.querySelector('nav');
+          if (window.scrollY > 20) {
+            navbar.classList.add('py-3');
+            navbar.classList.remove('py-5');
+          } else {
+            navbar.classList.add('py-5');
+            navbar.classList.remove('py-3');
+          }
+        });
+
+        // Mobile menu toggle
+        function toggleMenu() {
+          document.getElementById('mobileMenu').classList.toggle('-translate-x-full');
+        }
+      </script>
+    </head>
+    <body class="bg-white text-neutral-800">
+
+      <!-- NAVBAR -->
+      <nav class="fixed top-0 left-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-neutral-200/50 py-5 transition-all      
+duration-300">
+        <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
+          <a href="{{ url_for('index') }}" class="text-xl font-semibold text-green-800">For Peat's Sake</a>
+
+          <!-- Desktop menu -->
+          <div class="hidden md:flex space-x-6 text-sm font-medium">
+            <a href="{{ url_for('index') }}" class="hover:text-green-700">Home</a>
+            <a href="{{ url_for('what_is_paludiculture') }}" class="hover:text-green-700">What is Paludiculture?</a>
+            <a href="{{ url_for('can_i_do_it') }}" class="hover:text-green-700">Can I Do It?</a>
+            <a href="{{ url_for('biomass_uses') }}" class="hover:text-green-700">Biomass Uses</a>
+            <a href="{{ url_for('success_stories') }}" class="hover:text-green-700">Success Stories</a>
+            <a href="{{ url_for('policymakers') }}" class="hover:text-green-700">For Policymakers</a>
+            <div class="relative group">
+              <button class="hover:text-green-700">Learn More ▾</button>
+              <div class="absolute hidden group-hover:block bg-white border mt-2 shadow-lg rounded text-sm z-50">
+                <a href="{{ url_for('learn_more') }}#faq" class="block px-4 py-2 hover:bg-green-50">FAQ</a>
+                <a href="{{ url_for('learn_more') }}#glossary" class="block px-4 py-2 hover:bg-green-50">Glossary</a>
+                <a href="{{ url_for('contact') }}" class="block px-4 py-2 hover:bg-green-50">Contact</a>
+                <a href="{{ url_for('downloads') }}" class="block px-4 py-2 hover:bg-green-50">Downloads</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mobile menu toggle -->
+          <button class="md:hidden" onclick="toggleMenu()" aria-label="Toggle menu">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                 viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Mobile menu -->
+        <div id="mobileMenu" class="fixed inset-0 z-40 bg-white pt-20 px-6 flex flex-col -translate-x-full transition-transform       
+duration-300 ease-in-out md:hidden">
+          <a href="{{ url_for('index') }}" class="py-3 border-b">Home</a>
+          <a href="{{ url_for('what_is_paludiculture') }}" class="py-3 border-b">What is Paludiculture?</a>
+          <a href="{{ url_for('can_i_do_it') }}" class="py-3 border-b">Can I Do It?</a>
+          <a href="{{ url_for('biomass_uses') }}" class="py-3 border-b">Biomass Uses</a>
+          <a href="{{ url_for('success_stories') }}" class="py-3 border-b">Success Stories</a>
+          <a href="{{ url_for('policymakers') }}" class="py-3 border-b">For Policymakers</a>
+          <a href="{{ url_for('learn_more') }}#faq" class="py-3 border-b">FAQ</a>
+          <a href="{{ url_for('learn_more') }}#glossary" class="py-3 border-b">Glossary</a>
+          <a href="{{ url_for('contact') }}" class="py-3 border-b">Contact</a>
+          <a href="{{ url_for('downloads') }}" class="py-3 border-b">Downloads</a>
+        </div>
+      </nav>
+
+      <!-- MAIN CONTENT -->
+      <main class="pt-28 px-6 max-w-7xl mx-auto">
+        {% block content %}{% endblock %}
+      </main>
+
+      {% block scripts %}{% endblock %}
+    </body>
+    </html>
