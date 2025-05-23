@@ -1,5 +1,242 @@
 {% extends "base.html" %}
+{% block title %}Paludiculture Assessment Tool | For Peat’s Sake{% endblock %}
 
-{% block title %}Home | For Peat's Sake{% endblock %}
+{% block page_background %}
+  <div class="fixed inset-0 bg-gradient-to-br from-green-50 via-blue-50 to-emerald-50 -z-10"></div>
+{% endblock %}
 
 {% block content %}
+<div class="min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-emerald-50">
+
+  <!-- Hero Section -->
+  <section class="relative overflow-hidden bg-gradient-to-r from-green-600 to-blue-600 text-white">
+    <div class="absolute inset-0 bg-black/10"></div>
+    <div class="relative max-w-7xl mx-auto px-6 py-16 text-center">
+      <h1 class="text-5xl font-bold mb-6">Paludiculture Assessment Tool</h1>
+      <p class="text-xl mb-8 opacity-90">
+        Discover if your land is suitable for sustainable wet farming and unlock the potential of peatland agriculture
+      </p>
+      <div class="flex justify-center gap-4">
+        <span class="inline-flex items-center bg-white/90 text-green-700 px-3 py-1 rounded-full">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a2 2 0 002 2h12a2 2 0 002-2v-1"/>
+          </svg>
+          Sustainable Farming
+        </span>
+        <span class="inline-flex items-center bg-white/90 text-blue-700 px-3 py-1 rounded-full">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c.778 0 1.556.28 2.144.868M12 8c-.778 0-1.556.28-2.144.868M12 8v8"/>
+          </svg>
+          Climate Positive
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content with Tabs -->
+  <section x-data="assessmentTool()" class="max-w-7xl mx-auto px-6 py-12 space-y-8">
+    <!-- Tab Triggers -->
+    <div class="grid grid-cols-4 gap-4 mb-8">
+      <button
+        @click="tab = 'assessment'"
+        :class="tab==='assessment' ? 'bg-green-600 text-white' : 'bg-white text-green-600'"
+        class="flex items-center justify-center gap-2 p-3 rounded-full border border-green-600"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+        </svg>
+        Assessment
+      </button>
+      <button
+        @click="tab = 'crops'"
+        :class="tab==='crops' ? 'bg-green-600 text-white' : 'bg-white text-green-600'"
+        class="flex items-center justify-center gap-2 p-3 rounded-full border border-green-600"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+        </svg>
+        Crop Options
+      </button>
+      <button
+        @click="tab = 'costs'"
+        :class="tab==='costs' ? 'bg-green-600 text-white' : 'bg-white text-green-600'"
+        class="flex items-center justify-center gap-2 p-3 rounded-full border border-green-600"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v8"/>
+        </svg>
+        Economics
+      </button>
+      <button
+        @click="tab = 'implementation'"
+        :class="tab==='implementation' ? 'bg-green-600 text-white' : 'bg-white text-green-600'"
+        class="flex items-center justify-center gap-2 p-3 rounded-full border border-green-600"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7h18M3 12h18M3 17h18"/>
+        </svg>
+        Implementation
+      </button>
+    </div>
+
+    <!-- Assessment Tab -->
+    <div x-show="tab==='assessment'" class="space-y-8">
+      <div class="bg-white rounded-2xl shadow-lg">
+        <!-- Header -->
+        <div class="bg-gradient-to-r from-green-500 to-blue-500 text-white px-6 py-4">
+          <h2 class="text-2xl flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+            </svg>
+            Land Suitability Assessment
+          </h2>
+        </div>
+        <!-- Body -->
+        <div class="p-8 grid md:grid-cols-2 gap-8">
+          <!-- Questions -->
+          <div class="space-y-6">
+            <template x-for="(question, key) in questions" :key="key">
+              <div>
+                <label class="block font-medium mb-2" x-text="question.text"></label>
+                <div class="flex gap-4">
+                  <button
+                    @click="asses[key] = true"
+                    :class="asses[key] === true ? 'bg-green-600 text-white' : 'bg-white text-gray-700'"
+                    class="flex-1 px-4 py-2 rounded border"
+                  >Yes</button>
+                  <button
+                    @click="asses[key] = false"
+                    :class="asses[key] === false ? 'bg-red-600 text-white' : 'bg-white text-gray-700'"
+                    class="flex-1 px-4 py-2 rounded border"
+                  >No</button>
+                </div>
+              </div>
+            </template>
+          </div>
+          <!-- Score Panel -->
+          <div class="space-y-6">
+            <div class="p-6 bg-gradient-to-r from-blue-50 to-green-50 rounded-xl border">
+              <h3 class="font-semibold mb-4">Suitability Score</h3>
+              <div class="flex items-center justify-between">
+                <span>Progress</span>
+                <span class="font-semibold" x-text="score + '%'"></span>
+              </div>
+              <div class="h-3 bg-gray-200 rounded overflow-hidden mt-2">
+                <div class="h-full bg-green-600" :style="`width: ${score}%`"></div>
+              </div>
+              <div class="mt-4 p-3 rounded-xl" :class="level.bg">
+                <div class="text-center font-semibold" :class="level.color">
+                  Suitability: <span x-text="level.text"></span>
+                </div>
+              </div>
+            </div>
+            <div class="p-6 bg-yellow-50 border border-yellow-200 rounded-xl flex items-start gap-3">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-yellow-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01"/>
+              </svg>
+              <div>
+                <h4 class="font-semibold text-yellow-800">Next Steps</h4>
+                <p class="text-sm text-yellow-700 mt-1">
+                  Complete the assessment to get personalized recommendations for implementing paludiculture on your land.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Crop Options Tab -->
+    <div x-show="tab==='crops'" class="space-y-8">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <template x-for="(data, key) in cropData" :key="key">
+          <div
+            @click="selectedCrop = key"
+            :class="selectedCrop === key ? 'ring-2 ring-blue-500 shadow-xl' : 'shadow-lg'"
+            class="cursor-pointer rounded-2xl overflow-hidden"
+          >
+            <div :class="`${data.color} text-white px-4 py-2`">
+              <h3 class="capitalize" x-text="key.replace('_',' ')"></h3>
+            </div>
+            <div class="p-4 space-y-3">
+              <div>
+                <span class="text-sm text-gray-600">Yield:</span>
+                <span class="font-semibold" x-text="data.yield"></span>
+              </div>
+              <div>
+                <span class="text-sm text-gray-600">Setup Cost:</span>
+                <span class="font-semibold" x-text="data.cost"></span>
+              </div>
+            </div>
+          </div>
+        </template>
+      </div>
+      <div class="bg-white rounded-2xl shadow-lg overflow-x-auto">
+        <table class="min-w-full text-left">
+          <thead class="bg-green-100">
+            <tr>
+              <th class="px-4 py-2">Crop Type</th>
+              <th class="px-4 py-2">Biomass Yield/Year</th>
+              <th class="px-4 py-2">Setup Cost</th>
+              <th class="px-4 py-2">Water Needs</th>
+            </tr>
+          </thead>
+          <tbody>
+            <template x-for="(data,key) in cropData" :key="key">
+              <tr class="border-t hover:bg-gray-50">
+                <td class="px-4 py-2 font-medium" x-text="key.replace('_',' ')"></td>
+                <td class="px-4 py-2" x-text="data.yield"></td>
+                <td class="px-4 py-2" x-text="data.cost"></td>
+                <td class="px-4 py-2" x-text="data.water"></td>
+              </tr>
+            </template>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Economics & Implementation tabs can follow similarly... -->
+
+  </section>
+</div>
+
+<script>
+function assessmentTool() {
+  return {
+    tab: 'assessment',
+    asses: {
+      hasPeatland: null,
+      hasWaterAccess: null,
+      hasInfrastructure: null,
+      hasProcessingAccess: null
+    },
+    budget: '',
+    landSize: '',
+    questions: {
+      hasPeatland: { text: 'Is your land located in a peatland area?' },
+      hasWaterAccess: { text: 'Do you have adequate water access?' },
+      hasInfrastructure: { text: 'Can you modify infrastructure for wet conditions?' },
+      hasProcessingAccess: { text: 'Are there processing/marketing opportunities nearby?' }
+    },
+    cropData: {
+      reed: { yield: '6–24 t DM/ha', cost: '€2,000–€30,000/ha', water: 'High, stable', color: 'bg-green-500' },
+      cattail: { yield: '4–22 t DM/ha', cost: '€2,000–€30,000/ha', water: 'High, fluctuates', color: 'bg-blue-500' },
+      sphagnum: { yield: '2–8 t DM/ha', cost: '€49,000–€98,000/ha', water: 'Very high, precise', color: 'bg-purple-500' },
+      alder: { yield: 'Timber', cost: '€2,850–€7,000/ha', water: 'Stable, no flood', color: 'bg-orange-500' },
+      grassland: { yield: '2–12 t DM/ha', cost: '<€2,000/ha', water: 'Medium–high', color: 'bg-emerald-500' }
+    },
+    selectedCrop: 'reed',
+    get score() {
+      const yesCount = Object.values(this.asses).filter(v => v === true).length;
+      return Math.round((yesCount / 4) * 100);
+    },
+    get level() {
+      const s = this.score;
+      if (s >= 75) return { text: 'High', color: 'text-green-600', bg: 'bg-green-100' };
+      if (s >= 50) return { text: 'Medium', color: 'text-yellow-600', bg: 'bg-yellow-100' };
+      return { text: 'Low', color: 'text-red-600', bg: 'bg-red-100' };
+    }
+  }
+}
+</script>
+{% endblock %}

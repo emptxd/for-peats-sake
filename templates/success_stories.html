@@ -1,5 +1,73 @@
 {% extends "base.html" %}
-
-{% block title %}Home | For Peat's Sake{% endblock %}
-
+{% block title %}Success Stories | For Peat's Sake{% endblock %}
+{% block page_background %}
+  <div class="fixed inset-0 bg-gradient-to-r from-green-200 to-cyan-400 -z-10"></div>
+{% endblock %}
 {% block content %}
+<section class="py-16">
+  <div class="max-w-7xl mx-auto px-6 space-y-8 -mt-20">
+    <h1 class="text-4xl font-bold text-green-800 text-center">Success Stories</h1>
+
+    <!-- Story 1 -->
+    <div class="flex items-start bg-green-100 rounded-2xl p-6">
+      <img
+        src="https://northsearegion.eu/media/17869/img_2662.jpg?width=920&height=517.5"
+        alt="Henning Voigt"
+        class="w-20 h-20 rounded-full object-cover flex-shrink-0 mr-6"
+      />
+      <div class="text-gray-800">
+        <h2 class="text-xl font-semibold">Henning Voigt — Malchin, Germany</h2>
+        <p class="mt-2 italic">
+          Henning Voigt is a young farmer managing a rewetted fen near Malchin in northeast Germany. Collaborating with the Greifswald Mire Centre, he cultivates cattail (Typha) on former grazing land.
+        </p>
+      </div>
+    </div>
+
+    <!-- Story 2 -->
+    <div class="flex items-start bg-blue-100 rounded-2xl p-6">
+      <img
+        src="https://northsearegion.eu/media/17869/img_2662.jpg?width=920&height=517.5"
+        alt="Aldert Van Weeren"
+        class="w-20 h-20 rounded-full object-cover flex-shrink-0 mr-6"
+      />
+      <div class="text-gray-800">
+        <h2 class="text-xl font-semibold">Aldert Van Weeren — Eilanden, Netherlands</h2>
+        <p class="mt-2 italic">
+          Aldert Van Weeren is a Dutch farmer and entrepreneur near Amsterdam, specializing in cultivating Typha (cattail). Beyond farming, he actively promotes paludiculture through policy advocacy and international collaborations, including guiding study tours for organizations like the UK’s Great Fen project.
+        </p>
+      </div>
+    </div>
+
+    <!-- Story 3 -->
+    <div class="flex items-start bg-gray-100 rounded-2xl p-6">
+      <img
+        src="https://northsearegion.eu/media/17869/img_2662.jpg?width=920&height=517.5"
+        alt="Ralf Betge"
+        class="w-20 h-20 rounded-full object-cover flex-shrink-0 mr-6"
+      />
+      <div class="text-gray-800">
+        <h2 class="text-xl font-semibold">Ralf Betge — Benz, Germany</h2>
+        <p class="mt-2 italic">
+          Ralf Betge, based in Benz on Usedom Island, is a reed harvester and processor. Transitioning from traditional thatching, he now manages approximately 70 hectares of wet land and harvests reed beds, supplying local materials for roofing and contributing to sustainable land use.
+        </p>
+      </div>
+    </div>
+
+    <!-- Story 4 -->
+    <div class="flex items-start bg-yellow-100 rounded-2xl p-6">
+      <img
+        src="https://northsearegion.eu/media/17869/img_2662.jpg?width=920&height=517.5"
+        alt="Regan Family"
+        class="w-20 h-20 rounded-full object-cover flex-shrink-0 mr-6"
+      />
+      <div class="text-gray-800">
+        <h2 class="text-xl font-semibold">Regan Family — Gortavally, Ireland</h2>
+        <p class="mt-2 italic">
+          The Regan family operates Ireland’s first on-farm paludiculture trial at their farm in Gortavally. As part of the “Peatlands for Prosperity” project by Green Restoration Ireland, they cultivate wetland crops on rewetted peatlands, aiming to demonstrate sustainable agricultural practices that preserve peat soils and reduce CO₂ emissions.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+{% endblock %}

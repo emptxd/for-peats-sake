@@ -1,5 +1,508 @@
 {% extends "base.html" %}
 
-{% block title %}Home | For Peat's Sake{% endblock %}
+{% block title %}What Is Paludiculture? | For Peat's Sake{% endblock %}
+
+{% block page_background %}
+  <div class="fixed inset-0 bg-gradient-to-r from-green-200 to-cyan-400 -z-10"></div>
+{% endblock %}
 
 {% block content %}
+<section
+  id="intro"
+  class="relative pb-12 px-6 overflow-x-hidden"
+>
+  <!-- Intro text: full 7xl width -->
+  <div class="w-full max-w-7xl mx-auto text-center space-y-4">
+    <h2 class="text-3xl md:text-4xl font-bold text-green-800">
+      💧 What Is Wet Farming?
+    </h2>
+    <p class="text-lg text-gray-700">
+      Paludiculture is a form of <strong>wetland agriculture</strong> that makes use of water-saturated soils to grow and harvest plant biomass — 
+      <em>without draining the land</em>. Unlike conventional farming, which dries out peat soils and causes CO₂ emissions, paludiculture embraces 
+      water to turn wetlands into productive, climate-friendly landscapes.
+    </p>
+  </div>
+
+  <!-- Video embed: now max-w-2xl -->
+  <div class="w-full max-w-4xl mx-auto mt-8">
+    <div class="relative pb-[56.25%]">
+      <iframe
+        id="ytplayer"
+        class="absolute inset-0 w-full h-full rounded-2xl shadow-lg overflow-hidden"
+        src="https://www.youtube.com/embed/uXuRiLtH5ds?autoplay=1"
+        title="What Is Paludiculture? | For Peat's Sake"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+    </div>
+  </div>
+</section>
+
+
+<!-- Section 3 -->
+<div class="bg-white rounded-2xl shadow-lg p-8 w-full max-w-5xl mx-auto">
+  <h3 class="text-2xl font-semibold text-green-700 mb-6 text-center">
+    🌿 Two Types of Wet Farming
+  </h3>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <!-- Subsection A -->
+    <div>
+      <h4 class="text-xl font-medium text-green-600 mb-2">
+        1. Spontaneous Wetland Cultures
+      </h4>
+      <p class="text-gray-700 mb-2">
+        These arise naturally after rewetting the land and adapt over time to the local site conditions. They include:
+      </p>
+      <ul class="list-disc pl-6 text-gray-700 space-y-1">
+        <li><strong>Wet meadows</strong> (formed through summer mowing or light grazing)</li>
+        <li><strong>Wet pastures</strong> (used for water buffalo, cattle, etc.)</li>
+        <li><strong>Reed stands</strong> (formed via winter mowing and managed growth)</li>
+      </ul>
+      <p class="text-gray-700 mt-3">
+        These are usually diverse, low-maintenance systems that reflect the local ecology.
+      </p>
+    </div>
+
+    <!-- Subsection B -->
+    <div>
+      <h4 class="text-xl font-medium text-green-600 mb-2">
+        2. Planted Wetland Crops
+      </h4>
+      <p class="text-gray-700 mb-2">
+        This is more structured and active — farmers plant specific species in monoculture or designed mixes. Examples:
+      </p>
+      <ul class="list-disc pl-6 text-gray-700 space-y-1">
+        <li><strong>Common reed</strong> (Phragmites australis)</li>
+        <li><strong>Cattails</strong> (Typha spp.)</li>
+        <li><strong>Alder trees</strong></li>
+        <li><strong>Wetland grasses</strong></li>
+      </ul>
+      <p class="text-gray-700 mt-3">
+        These systems require more setup, permits, and ongoing management, but can yield higher, more targeted biomass outputs.
+      </p>
+    </div>
+  </div>
+</div>
+
+<section x-data="{ tab: 'reed' }" class="py-16">
+  <div class="max-w-7xl mx-auto px-6 space-y-8">
+
+    <!-- Section heading -->
+    <h2 class="text-3xl font-bold text-green-800 text-center">Types of Cultivations</h2>
+
+    <!-- Tabs -->
+    <div class="flex justify-center space-x-4">
+      <button
+        @click="tab = 'reed'"
+        :class="tab==='reed' ? 'bg-green-600 text-white' : 'bg-white text-green-600'"
+        class="px-4 py-2 rounded-full border border-green-600 transition"
+      >Reed &amp; Grasses</button>
+
+      <button
+        @click="tab = 'sphagnum'"
+        :class="tab==='sphagnum' ? 'bg-green-600 text-white' : 'bg-white text-green-600'"
+        class="px-4 py-2 rounded-full border border-green-600 transition"
+      >Peat Moss</button>
+
+      <button
+        @click="tab = 'alder'"
+        :class="tab==='alder' ? 'bg-green-600 text-white' : 'bg-white text-green-600'"
+        class="px-4 py-2 rounded-full border border-green-600 transition"
+      >Black Alder</button>
+    </div>
+
+    <!-- Reed & Grasses -->
+    <div
+      x-show="tab==='reed'"
+      id="crops"
+      class="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col md:flex-row items-stretch"
+    >
+      <!-- Text -->
+      <div class="p-8 md:w-1/2 flex-shrink-0">
+        <h3 class="text-2xl font-semibold text-green-700 mb-4">Reed &amp; Grasses (e.g. Phragmites, Typha, Phalaris, Carex)</h3>
+        <ul class="list-disc pl-6 space-y-2 text-gray-700">
+          <li><strong>Site prep:</strong> Close drainage pipes, build bunds/dikes/roads, terrace slopes, install irrigation infrastructure.</li>
+          <li><strong>Water mgmt:</strong> Controlled inlets, irrigation ditches, regulated overflows; optional pumping (grid or solar).</li>
+          <li><strong>Establishment:</strong>
+            <ul class="list-disc pl-6 space-y-1">
+              <li>Phalaris seed: 15–25 kg/ha, rows 12.5 cm apart.</li>
+              <li>Plant reed: 0.25–4 plants/m²; cattail: &lt;2 seedlings/m².</li>
+              <li>Use pelletized seed or hand/mechanical planting.</li>
+            </ul>
+          </li>
+          <li><strong>Maintenance:</strong> Mow bunds 1+×/yr; perform establishment cuts; check irrigation gear.</li>
+          <li><strong>Harvest:</strong> Annual after 1–3 yr; tracked harvesters, bales or chaff; future autonomous kit.</li>
+          <li><strong>Yield:</strong>
+            <ul class="list-disc pl-6 space-y-1">
+              <li>Reed: 6–24 t DM/ha·yr (3–15 t winter).</li>
+              <li>Cattail: 4–22 t DM/ha·yr.</li>
+              <li>Phalaris: 1.6–13 t DM/ha·yr.</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <!-- Image -->
+      <div class="md:w-1/2">
+        <img
+          src="https://cdn.mos.cms.futurecdn.net/8VvMn3pTv4zCBsLtHG3ELK.jpg"
+          alt="Reed & Grasses"
+          class="w-full h-full object-cover rounded-tr-2xl rounded-br-2xl"
+        />
+      </div>
+    </div>
+
+    <!-- Peat Moss -->
+    <div
+      x-show="tab==='sphagnum'"
+      class="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col md:flex-row items-stretch"
+    >
+      <!-- Text -->
+      <div class="p-8 md:w-1/2 flex-shrink-0">
+        <h3 class="text-2xl font-semibold text-green-700 mb-4">Peat Moss (Sphagnum spp.)</h3>
+        <ul class="list-disc pl-6 space-y-2 text-gray-700">
+          <li><strong>Site prep:</strong> Remove nutrient-rich topsoil, level peat surface, build bunds/roads for access.</li>
+          <li><strong>Water mgmt:</strong> Create hydrologic units with cascades, install pumps &amp; sensors, dig irrigation ditches, use adjustable overflows.</li>
+          <li><strong>Establishment:</strong> Transplant live moss to ~80% cover (~80 m³/ha) early in the growing season.</li>
+          <li><strong>Maintenance:</strong> Mow to suppress vascular plants, clean ditches, service pumps, mulch bunds.</li>
+          <li><strong>Harvest:</strong> Every 3–5 yr with tracked excavators; future autonomous light machinery.</li>
+          <li><strong>Yield:</strong> ~2–8 t DM/ha·yr.</li>
+        </ul>
+      </div>
+      <!-- Image -->
+      <div class="md:w-1/2">
+        <img
+          src="https://cdn.mos.cms.futurecdn.net/ZwMuGybdKroPh65qVgmqi6.jpg"
+          alt="Peat Moss"
+          class="w-full h-full object-cover rounded-tr-2xl rounded-br-2xl"
+        />
+      </div>
+    </div>
+
+    <!-- Black Alder -->
+    <div
+      x-show="tab==='alder'"
+      class="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col md:flex-row items-stretch"
+    >
+      <!-- Text -->
+      <div class="p-8 md:w-1/2 flex-shrink-0">
+        <h3 class="text-2xl font-semibold text-green-700 mb-4">Black Alder (Alnus glutinosa)</h3>
+        <ul class="list-disc pl-6 space-y-2 text-gray-700">
+          <li><strong>Site prep:</strong> Ensure free upstream flow, build ridges to protect seedlings, mow existing vegetation.</li>
+          <li><strong>Water mgmt:</strong> Maintain free inflow; avoid prolonged inundation.</li>
+          <li><strong>Establishment:</strong> Plant 2-yr nursery seedlings at 3 000–3 500/ha (2 × 2 m spacing), on ridges for wetlands.</li>
+          <li><strong>Maintenance:</strong> Juvenile care with first thinning at ~8 yr, 4–6 thinnings before final harvest.</li>
+          <li><strong>Harvest:</strong> Low-impact methods (e.g. cable winch) for thinnings; full rotation at 60–80 yr.</li>
+          <li><strong>Yield:</strong> 600–800 m³ standing volume per ha at age 60.</li>
+        </ul>
+      </div>
+      <!-- Image -->
+      <div class="md:w-1/2">
+        <img
+          src="https://nplimages.infradoxxs.com/cache/pcache2/01541927.jpg"
+          alt="Black Alder"
+          class="w-full h-full object-cover rounded-tr-2xl rounded-br-2xl"
+        />
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="border-t-2 border-white/50 my-4"/>
+
+
+
+
+    <!-- Hero Metrics: Why Paludiculture -->
+    <section x-data="{ open: false }" class="py-16">
+      <div class="max-w-4xl mx-auto text-center space-y-8">
+        <h2 class="text-4xl font-bold text-green-800">Why Paludiculture</h2>
+
+        <div class="flex flex-col md:flex-row items-stretch justify-center gap-6">
+          <!-- Metric 1 -->
+          <div class="relative bg-white/20 border border-white rounded-2xl flex-1 p-6 flex flex-col items-center">
+            <button
+              @click="open = true"
+              class="absolute top-3 right-3 text-white hover:text-gray-200 focus:outline-none"
+              aria-label="What does this mean?"
+            >ℹ️</button>
+            <span class="text-5xl font-extrabold text-green-600">53 Mt CO₂e/yr</span>
+            <span class="mt-2 text-gray-700 text-center">
+              Emissions from drained peatlands in Germany (~6% of national total)
+            </span>
+          </div>
+
+          <!-- Metric 2 -->
+          <div class="relative bg-white/20 border border-white rounded-2xl flex-1 p-6 flex flex-col items-center">
+            <button
+              @click="open = true"
+              class="absolute top-3 right-3 text-white hover:text-gray-200 focus:outline-none"
+              aria-label="What does this mean?"
+            >ℹ️</button>
+            <span class="text-5xl font-extrabold text-green-600">0.23 Nm³/kg DM</span>
+            <span class="mt-2 text-gray-700 text-center">
+              Methane yield per kg of dried wetland biomass
+            </span>
+          </div>
+
+          <!-- Metric 3 -->
+          <div class="relative bg-white/20 border border-white rounded-2xl flex-1 p-6 flex flex-col items-center">
+            <button
+              @click="open = true"
+              class="absolute top-3 right-3 text-white hover:text-gray-200 focus:outline-none"
+              aria-label="What does this mean?"
+            >ℹ️</button>
+            <span class="text-5xl font-extrabold text-green-600">6 – 20 t DM/ha</span>
+            <span class="mt-2 text-gray-700 text-center">
+              Annual dry biomass harvest per hectare
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Metrics Explanation Modal -->
+      <div
+        x-show="open"
+        x-transition
+        class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50"
+      >
+        <div
+          @click.away="open = false"
+          class="bg-white rounded-2xl max-w-lg w-full p-6 relative shadow-lg"
+        >
+          <button
+            @click="open = false"
+            class="absolute top-4 right-4 text-gray-500 hover:text-gray-700 text-2xl"
+            aria-label="Close"
+          >&times;</button>
+          <h4 class="text-xl font-semibold text-green-800 mb-4">Understanding the Metrics</h4>
+          <ul class="list-disc pl-6 text-gray-700 space-y-3">
+            <li>
+              <strong>53 Mt CO₂e/yr</strong>: Drained peatlands in Germany emit 53 million tonnes of
+              CO₂-equivalent annually—about 6% of the country’s total greenhouse-gas emissions.
+            </li>
+            <li>
+              <strong>0.23 Nm³/kg DM</strong>: One kilogram of dried wetland biomass can yield
+              ~0.23 normal cubic meters of methane in a biogas digester—enough to run a small
+              stove for 10–15 minutes.
+            </li>
+            <li>
+              <strong>6–20 t DM/ha</strong>: Paludiculture systems produce between 6 and 20 tonnes
+              of dried plant material per hectare annually—equivalent to several dump trucks of biomass.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+
+
+ {% block section_gwp %}
+<div x-data="{ infoOpen: false }" class="max-w-7xl mx-auto px-6 bg-white rounded-2xl shadow-lg p-8">
+  <!-- Header with Info Icon -->
+  <div class="relative mb-4 text-center">
+    <h3 class="text-2xl font-semibold text-green-700">
+      🌍 Global Warming Potential by Paludiculture Type
+    </h3>
+    <button
+      @click="infoOpen = true"
+      class="absolute top-0 right-0 text-green-700 hover:text-green-800 focus:outline-none"
+      aria-label="What is GWP?"
+    >
+      ℹ️
+    </button>
+  </div>
+
+  <!-- GWP Table -->
+  <div class="overflow-x-auto">
+    <table class="min-w-full text-left">
+      <thead>
+        <tr class="bg-green-100">
+          <th class="px-4 py-2">Paludiculture Type</th>
+          <th class="px-4 py-2">GWP (t CO₂-eq / ha·yr)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="border-t">
+          <td class="px-4 py-2">Common reed<sup>1</sup></td>
+          <td class="px-4 py-2">0 – 7</td>
+        </tr>
+        <tr class="border-t bg-gray-50">
+          <td class="px-4 py-2">Cattail<sup>1</sup></td>
+          <td class="px-4 py-2">6 – 7</td>
+        </tr>
+        <tr class="border-t">
+          <td class="px-4 py-2">Large sedges<sup>1</sup></td>
+          <td class="px-4 py-2">3 – 10</td>
+        </tr>
+        <tr class="border-t bg-gray-50">
+          <td class="px-4 py-2">Sphagnum mosses<sup>2</sup></td>
+          <td class="px-4 py-2">~ 3</td>
+        </tr>
+        <tr class="border-t">
+          <td class="px-4 py-2">Wet pasture with water buffalo<sup>1</sup></td>
+          <td class="px-4 py-2">8 – 12</td>
+        </tr>
+      </tbody>
+      <tfoot class="border-t">
+        <tr class="bg-green-100">
+          <td class="px-4 py-2 font-semibold">For comparison</td>
+          <td></td>
+        </tr>
+        <tr class="border-t">
+          <td class="px-4 py-2">Grassland (average)<sup>3</sup></td>
+          <td class="px-4 py-2">31.7</td>
+        </tr>
+        <tr class="border-t">
+          <td class="px-4 py-2">Cropland (average)<sup>3</sup></td>
+          <td class="px-4 py-2">40.4</td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+
+  <!-- GWP Explanation Modal -->
+  <div
+    x-show="infoOpen"
+    class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50"
+  >
+    <div
+      @click.away="infoOpen = false"
+      class="bg-white rounded-2xl max-w-lg w-full p-6 relative shadow-lg"
+    >
+      <button
+        @click="infoOpen = false"
+        class="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
+        aria-label="Close"
+      >&times;</button>
+      <h4 class="text-xl font-semibold text-green-800 mb-2">What is Global Warming Potential?</h4>
+      <p class="text-gray-700 mb-4">
+        Global warming potential (GWP) measures the net greenhouse-gas flux of a land use in
+        <strong>tons of CO₂-equivalent per hectare per year</strong>. Positive values mean the
+        land emits more greenhouse gases than it absorbs; negative values would indicate a net sink.
+        This table shows how different paludiculture systems compare:
+      </p>
+      <ul class="list-disc pl-6 text-gray-700 space-y-2">
+        <li>
+          <strong>0–7 t CO₂-eq/ha·yr</strong> for common reed means it can be nearly carbon
+          neutral to slightly emitting.
+        </li>
+        <li>
+          <strong>6–7 t CO₂-eq/ha·yr</strong> for cattail shows moderate emissions when harvested
+          regularly.
+        </li>
+        <li>
+          Systems like wet pasture with buffalo (<strong>8–12 t CO₂-eq/ha·yr</strong>) still
+          outperform conventional grassland (<strong>31.7</strong>) or cropland (<strong>40.4</strong>).
+        </li>
+      </ul>
+      <p class="text-gray-500 text-sm mt-4">
+        Sources:
+        <sup>1</sup> Nordtetal Paludiculture Study (2022) |
+        <sup>2</sup> Peat Moss GWP Assessment |
+        <sup>3</sup> German Federal Agriculture Stats
+      </p>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+<h2 class="text-3xl font-bold text-green-800 text-center mt-10 -mb-6">
+  Key Benefits of Paludiculture
+</h2>
+
+<!-- Benefits Grid -->
+<section class="py-16">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- 1. Climate Change Mitigation -->
+      <div class="bg-white rounded-2xl shadow p-6 flex flex-col">
+        <div class="flex items-center mb-4">
+          <span class="text-2xl">🔥</span>
+          <h3 class="ml-2 text-lg font-semibold text-green-800">Climate Change Mitigation</h3>
+        </div>
+        <p class="text-gray-600 flex-grow">
+          Rewetting peatlands for paludiculture significantly reduces CO₂ emissions, potentially turning peat soils back into carbon sinks.
+        </p>
+      </div>
+
+      <!-- 2. Sustainable Biomass Utilization -->
+      <div class="bg-white rounded-2xl shadow p-6 flex flex-col">
+        <div class="flex items-center mb-4">
+          <span class="text-2xl">🌱</span>
+          <h3 class="ml-2 text-lg font-semibold text-green-800">Sustainable Biomass Utilization</h3>
+        </div>
+        <p class="text-gray-600 flex-grow">
+          Wetland biomass yields 0.21–0.26 Nm³ CH₄/kg DM for biogas and provides peat-free growing media using Typha and other plants.
+        </p>
+      </div>
+
+      <!-- 3. Biodiversity & Ecosystem Services -->
+      <div class="bg-white rounded-2xl shadow p-6 flex flex-col">
+        <div class="flex items-center mb-4">
+          <span class="text-2xl">🐦</span>
+          <h3 class="ml-2 text-lg font-semibold text-green-800">Biodiversity &amp; Ecosystem Services</h3>
+        </div>
+        <p class="text-gray-600 flex-grow">
+          Restored peatlands support rare wetland species and improve water quality via nutrient retention (N&P), enhancing overall habitat health.
+        </p>
+      </div>
+
+      <!-- 4. Economic Potential -->
+      <div class="bg-white rounded-2xl shadow p-6 flex flex-col">
+        <div class="flex items-center mb-4">
+          <span class="text-2xl">💼</span>
+          <h3 class="ml-2 text-lg font-semibold text-green-800">Economic Potential</h3>
+        </div>
+        <p class="text-gray-600 flex-grow">
+          Biomass yields of 6–20 t DM/ha generate revenue streams for bioenergy and raw materials, reducing import dependency and boosting rural incomes.
+        </p>
+      </div>
+
+      <!-- 5. Nutrient Management & Soil Quality -->
+      <div class="bg-white rounded-2xl shadow p-6 flex flex-col">
+        <div class="flex items-center mb-4">
+          <span class="text-2xl">💧</span>
+          <h3 class="ml-2 text-lg font-semibold text-green-800">Nutrient Management &amp; Soil Quality</h3>
+        </div>
+        <p class="text-gray-600 flex-grow">
+          Paludiculture buffer zones trap nitrogen and phosphorus, reducing eutrophication, while rewetting restores soil structure and health.
+        </p>
+      </div>
+
+      <!-- 6. Regional Development & Employment -->
+      <div class="bg-white rounded-2xl shadow p-6 flex flex-col">
+        <div class="flex items-center mb-4">
+          <span class="text-2xl">🤝</span>
+          <h3 class="ml-2 text-lg font-semibold text-green-800">Regional Development &amp; Employment</h3>
+        </div>
+        <p class="text-gray-600 flex-grow">
+          New industries around biomass harvesting and processing create jobs in rural regions, driving economic diversification and growth.
+        </p>
+      </div>
+
+      <!-- 7. Adaptation to Climate Impacts -->
+      <div class="bg-white rounded-2xl shadow p-6 flex flex-col">
+        <div class="flex items-center mb-4">
+          <span class="text-2xl">⛈️</span>
+          <h3 class="ml-2 text-lg font-semibold text-green-800">Adaptation to Climate Impacts</h3>
+        </div>
+        <p class="text-gray-600 flex-grow">
+          Rewetted peatlands buffer floods and droughts by stabilizing water levels, increasing resilience to extreme weather events.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  
+
+
+
+
+    </div>
+  </div>
+{% endblock %}
