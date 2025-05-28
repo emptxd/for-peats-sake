@@ -34,61 +34,88 @@
 <body class="overflow-x-hidden bg-white text-neutral-800">
 
   <!-- NAVBAR -->
-  <nav id="navbar"
-       class="fixed top-0 left-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-neutral-200/50 py-5 transition-all duration-300">
-    <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
-      <a href="{{ url_for('index') }}" class="text-xl font-semibold text-green-800">For Peat's Sake</a>
-      <div class="hidden md:flex space-x-6 text-sm font-medium">
-        <a href="{{ url_for('what_is_paludiculture') }}" class="hover:text-green-700">What is Paludiculture?</a>
-        <a href="{{ url_for('can_i_do_it') }}"           class="hover:text-green-700">Get Started</a>
-        <a href="{{ url_for('success_stories') }}"       class="hover:text-green-700">Success Stories</a>
-        <a href="mailto:info@destruunhoeve.nl"            class="hover:text-green-700">Contact</a>
-      </div>
-      <button class="md:hidden" onclick="toggleMenu()" aria-label="Toggle menu">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-             viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M4 6h16M4 12h16M4 18h16"/>
-        </svg>
-      </button>
+<nav id="navbar"
+     class="fixed top-0 left-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-neutral-200/50 py-5 transition-all duration-300">
+  <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
+    <!-- Logo -->
+    <a href="{{ url_for('index') }}" class="flex items-center">
+      <img src="{{ url_for('static', filename='logo.svg') }}"
+           alt="For Peat's Sake logo"
+           class="h-8 w-auto md:h-10" />
+    </a>
+
+    <!-- Main links -->
+    <div class="hidden md:flex items-center space-x-6 text-sm font-medium">
+      <a href="{{ url_for('what_is_paludiculture') }}" class="hover:text-green-700">
+        What is Paludiculture?
+      </a>
+      <a href="{{ url_for('success_stories') }}" class="hover:text-green-700">
+        Success Stories
+      </a>
+      <a href="mailto:info@destruunhoeve.nl" class="hover:text-green-700">
+        Contact
+      </a>
     </div>
 
-    <!-- Mobile menu -->
-    <div id="mobileMenu"
-         class="fixed inset-0 pt-20 px-6 flex flex-col -translate-x-full
-                transition-transform duration-300 ease-in-out bg-white z-40 md:hidden">
-      <!-- Close “X” -->
-      <button
-        class="self-end mb-4 text-gray-700"
-        onclick="toggleMenu()"
-        aria-label="Close menu"
+    <!-- “Get Started” Button -->
+    <div class="hidden md:block">
+      <a
+        href="{{ url_for('can_i_do_it') }}"
+        class="inline-block bg-gradient-to-r from-green-200 to-cyan-400 text-black-800 font-medium px-4 py-2 rounded-full shadow"
       >
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-             viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M6 18L18 6M6 6l12 12"/>
-        </svg>
-      </button>
-      <div class="space-y-2">
-        <a href="{{ url_for('what_is_paludiculture') }}"
-           class="block bg-white rounded-lg py-3 px-4 shadow">
-          What is Paludiculture?
-        </a>
-        <a href="{{ url_for('can_i_do_it') }}"
-           class="block bg-white rounded-lg py-3 px-4 shadow">
-          Get Started
-        </a>
-        <a href="{{ url_for('success_stories') }}"
-           class="block bg-white rounded-lg py-3 px-4 shadow">
-          Success Stories
-        </a>
-        <a href="mailto:info@destruunhoeve.nl"
-           class="block bg-white rounded-lg py-3 px-4 shadow">
-          Contact
-        </a>
-      </div>
+        Get Started
+      </a>
     </div>
-  </nav>
+
+    <!-- Mobile menu toggle -->
+    <button class="md:hidden" onclick="toggleMenu()" aria-label="Toggle menu">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+           viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mobileMenu"
+       class="fixed inset-0 pt-20 px-6 flex flex-col -translate-x-full
+              transition-transform duration-300 ease-in-out bg-white z-40 md:hidden">
+    <!-- Close “X” -->
+    <button
+      class="self-end mb-4 text-gray-700"
+      onclick="toggleMenu()"
+      aria-label="Close menu"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+           viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"/>
+      </svg>
+    </button>
+    <div class="space-y-2">
+      <a href="{{ url_for('what_is_paludiculture') }}"
+         class="block bg-white rounded-lg py-3 px-4 shadow">
+        What is Paludiculture?
+      </a>
+      <a href="{{ url_for('success_stories') }}"
+         class="block bg-white rounded-lg py-3 px-4 shadow">
+        Success Stories
+      </a>
+      <a href="mailto:info@destruunhoeve.nl"
+         class="block bg-white rounded-lg py-3 px-4 shadow">
+        Contact
+      </a>
+      <a
+        href="{{ url_for('can_i_do_it') }}"
+        class="block bg-gradient-to-r from-green-200 to-cyan-400 text-black-800 rounded-lg py-3 px-4 shadow text-center font-medium"
+      >
+        Get Started
+      </a>
+    </div>
+  </div>
+</nav>
+
 
   {# FULL‐VIEWPORT BACKGROUND GOES HERE #}
   {% block page_background %}{% endblock %}
@@ -97,6 +124,27 @@
   <main class="relative pt-28">
     {% block content %}{% endblock %}
   </main>
+
+      {% if request.endpoint != 'index' %}
+    <!-- FOOTER -->
+    <footer class="bg-neutral-100 border-t border-neutral-200 text-neutral-600 text-sm py-6 mt-12">
+      <div class="max-w-7xl mx-auto px-6 flex flex-col items-center space-y-2">
+        <a href="{{ url_for('index') }}" class="flex items-center">
+          <img
+            src="{{ url_for('static', filename='logo.svg') }}"
+            alt="For Peat's Sake logo"
+            class="h-6 w-auto md:h-8"
+          />
+        </a>
+        <p class="text-center">
+          © 2025 University of Amsterdam — BSc. Computational Social Science.<br>
+          Developed by Group <span class="font-semibold">For Peat’s Sake</span>.
+        </p>
+      </div>
+    </footer>
+  {% endif %}
+
+
 
   {% block scripts %}{% endblock %}
 </body>

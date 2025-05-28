@@ -40,38 +40,46 @@
 </section>
 
 
-<!-- Section 3 -->
-<div class="bg-white rounded-2xl shadow-lg p-8 w-full max-w-5xl mx-auto">
-  <h3 class="text-2xl font-semibold text-green-700 mb-6 text-center">
-    🌿 Two Types of Wet Farming
-  </h3>
-
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-    <!-- Subsection A -->
-    <div>
-      <h4 class="text-xl font-medium text-green-600 mb-2">
+<!-- Two Types of Wet Farming -->
+<section class="max-w-5xl mx-auto px-6 space-y-12 py-12">
+  <!-- 1. Spontaneous Wetland Cultures -->
+  <div class="flex flex-col md:flex-row overflow-hidden rounded-2xl bg-white shadow-lg">
+    <!-- Image on left -->
+    <div class="md:w-1/2 h-64 md:h-auto">
+      <img
+        src="https://mnfi.anr.msu.edu/element-images/1000/Northern-Wet-Meadow-3460.jpg"
+        alt="Spontaneous Wetland Cultures"
+        class="w-full h-full object-cover"
+      />
+    </div>
+    <!-- Text on right -->
+    <div class="md:w-1/2 p-8 flex flex-col justify-center space-y-4">
+      <h4 class="text-xl font-medium text-green-600">
         1. Spontaneous Wetland Cultures
       </h4>
-      <p class="text-gray-700 mb-2">
-        These arise naturally after rewetting the land and adapt over time to the local site conditions. They include:
+      <p class="text-gray-700">
+        These arise naturally after rewetting the land and adapt over time to local conditions. They include:
       </p>
       <ul class="list-disc pl-6 text-gray-700 space-y-1">
         <li><strong>Wet meadows</strong> (formed through summer mowing or light grazing)</li>
         <li><strong>Wet pastures</strong> (used for water buffalo, cattle, etc.)</li>
         <li><strong>Reed stands</strong> (formed via winter mowing and managed growth)</li>
       </ul>
-      <p class="text-gray-700 mt-3">
-        These are usually diverse, low-maintenance systems that reflect the local ecology.
+      <p class="text-gray-700">
+        These are diverse, low-maintenance systems that reflect local ecology.
       </p>
     </div>
+  </div>
 
-    <!-- Subsection B -->
-    <div>
-      <h4 class="text-xl font-medium text-green-600 mb-2">
+  <!-- 2. Planted Wetland Crops -->
+  <div class="flex flex-col md:flex-row overflow-hidden rounded-2xl bg-white shadow-lg">
+    <!-- Text on left -->
+    <div class="md:w-1/2 p-8 flex flex-col justify-center space-y-4">
+      <h4 class="text-xl font-medium text-green-600">
         2. Planted Wetland Crops
       </h4>
-      <p class="text-gray-700 mb-2">
-        This is more structured and active — farmers plant specific species in monoculture or designed mixes. Examples:
+      <p class="text-gray-700">
+        More structured and active—farmers plant specific species in monoculture or designed mixes. Examples:
       </p>
       <ul class="list-disc pl-6 text-gray-700 space-y-1">
         <li><strong>Common reed</strong> (Phragmites australis)</li>
@@ -79,12 +87,23 @@
         <li><strong>Alder trees</strong></li>
         <li><strong>Wetland grasses</strong></li>
       </ul>
-      <p class="text-gray-700 mt-3">
+      <p class="text-gray-700">
         These systems require more setup, permits, and ongoing management, but can yield higher, more targeted biomass outputs.
       </p>
     </div>
+    <!-- Image on right -->
+    <div class="md:w-1/2 h-64 md:h-auto">
+      <img
+        src="https://creaseymahannaturepreserve.org/wp-content/uploads/2014/07/Cattail-Reflections-850px.jpg"
+        alt="Planted Wetland Crops"
+        class="w-full h-full object-cover"
+      />
+    </div>
   </div>
+</section>
+
 </div>
+
 
 <section x-data="{ tab: 'reed' }" class="py-16">
   <div class="max-w-7xl mx-auto px-6 space-y-8">
@@ -300,12 +319,15 @@
 
 
  {% block section_gwp %}
-<div x-data="{ infoOpen: false }" class="max-w-7xl mx-auto px-6 bg-white rounded-2xl shadow-lg p-8">
+<div x-data="{ infoOpen: false }" class="max-w-7xl mx-auto px-6 bg-white rounded-2xl shadow-lg p-8 mt-16">
   <!-- Header with Info Icon -->
-  <div class="relative mb-4 text-center">
+  <div class="relative mb-6 text-center">
     <h3 class="text-2xl font-semibold text-green-700">
       🌍 Global Warming Potential by Paludiculture Type
     </h3>
+    <p class="text-lg text-gray-700 mt-2">
+      By comparing the annual CO₂-equivalent emissions of different wetland crops against conventional grassland and cropland, this table highlights the significant mitigation potential of paludiculture for sustainable peatland management.
+    </p>
     <button
       @click="infoOpen = true"
       class="absolute top-0 right-0 text-green-700 hover:text-green-800 focus:outline-none"
@@ -409,7 +431,8 @@
 </div>
 {% endblock %}
 
-<h2 class="text-3xl font-bold text-green-800 text-center mt-10 -mb-6">
+
+<h2 class="text-3xl font-bold text-green-800 text-center mt-28 -mb-6">
   Key Benefits of Paludiculture
 </h2>
 
@@ -496,6 +519,26 @@
     </div>
   </div>
 </section>
+
+<!-- CTA Section (after Key Benefits) -->
+<section class="relative bg-gradient-to-r from-green-500 to-cyan-400 text-white py-16 mt-16">
+  <div class="absolute inset-0 bg-black opacity-20"></div>
+  <div class="relative max-w-4xl mx-auto px-6 text-center space-y-6">
+    <h2 class="text-3xl md:text-4xl font-bold">
+      Ready to Transform Your Land?
+    </h2>
+    <p class="text-lg md:text-xl opacity-90">
+      Discover how easy it is to get started with paludiculture—boost biodiversity, cut emissions, and explore new revenue streams.
+    </p>
+    <a
+      href="{{ url_for('can_i_do_it') }}"
+      class="inline-block bg-white text-green-600 font-semibold px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition"
+    >
+      Get Started Today
+    </a>
+  </div>
+</section>
+
 
 
   

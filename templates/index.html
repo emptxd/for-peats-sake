@@ -20,9 +20,10 @@
       </span>
     </h1>
 
-    <p class="hero-subtitle opacity-0 text-lg sm:text-xl md:text-2xl text-white/90 mb-10 max-w-3xl mx-auto">
-      Paludiculture: Sustainable farming on wet peatlands, reducing carbon emissions, enhancing biodiversity, and securing farmers' futures.
-    </p>
+    <p class="hero-subtitle opacity-0 text-lg sm:text-xl md:text-2xl text-white/90 mb-10 max-w-3xl mx-auto filter drop-shadow-md">
+  Wetfarming: Sustainable farming on wet peatlands, reducing carbon emissions, enhancing biodiversity, and securing farmers' futures.
+</p>
+
 
     <a
   href="{{ url_for('what_is_paludiculture') }}"
@@ -33,15 +34,7 @@
 
   </div>
 
-  <!-- Scroll-down indicator -->
-  <div 
-    class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce cursor-pointer"
-    onclick="document.querySelector('#why-paludiculture').scrollIntoView({ behavior: 'smooth' })"
-  >
-    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-    </svg>
-  </div>
+  
 </section>
 {% endblock %}
 

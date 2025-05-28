@@ -5,69 +5,60 @@
 {% endblock %}
 {% block content %}
 <section class="py-16">
-  <div class="max-w-7xl mx-auto px-6 space-y-8 -mt-20">
+  <div class="max-w-7xl mx-auto px-6 space-y-12 -mt-20">
     <h1 class="text-4xl font-bold text-green-800 text-center">Success Stories</h1>
 
-    <!-- Story 1 -->
-    <div class="flex items-start bg-green-100 rounded-2xl p-6">
-      <img
-        src="https://northsearegion.eu/media/17869/img_2662.jpg?width=920&height=517.5"
-        alt="Henning Voigt"
-        class="w-20 h-20 rounded-full object-cover flex-shrink-0 mr-6"
-      />
-      <div class="text-gray-800">
-        <h2 class="text-xl font-semibold">Henning Voigt — Malchin, Germany</h2>
-        <p class="mt-2 italic">
-          Henning Voigt is a young farmer managing a rewetted fen near Malchin in northeast Germany. Collaborating with the Greifswald Mire Centre, he cultivates cattail (Typha) on former grazing land.
-        </p>
-      </div>
-    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
 
-    <!-- Story 2 -->
-    <div class="flex items-start bg-blue-100 rounded-2xl p-6">
-      <img
-        src="https://northsearegion.eu/media/17869/img_2662.jpg?width=920&height=517.5"
-        alt="Aldert Van Weeren"
-        class="w-20 h-20 rounded-full object-cover flex-shrink-0 mr-6"
-      />
-      <div class="text-gray-800">
-        <h2 class="text-xl font-semibold">Aldert Van Weeren — Eilanden, Netherlands</h2>
-        <p class="mt-2 italic">
-          Aldert Van Weeren is a Dutch farmer and entrepreneur near Amsterdam, specializing in cultivating Typha (cattail). Beyond farming, he actively promotes paludiculture through policy advocacy and international collaborations, including guiding study tours for organizations like the UK’s Great Fen project.
-        </p>
+      <!-- Story 1 -->
+      <div class="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col">
+        <div class="h-48 bg-cover bg-center" style="background-image:url('https://northsearegion.eu/media/17869/img_2662.jpg?width=920&height=517.5')"></div>
+        <div class="p-6 flex-1 flex flex-col">
+          <h2 class="text-xl font-semibold text-green-700 mb-2">
+            Cattail Cultivation at Teichweide (Neukalen, Mecklenburg-Vorpommern)
+          </h2>
+          <p class="text-gray-700 flex-1">
+            In 2019, a 10-hectare plot of formerly drained peat meadow alongside the Teterower Peene was converted into a demonstration site for Typha (cattail) farming. With support from the landowner and under the Paludi-PRIMA project, farmers navigated permitting, site preparation and planting, and by December 2021 they harvested their first batch of chopped biomass. This pilot proved that, on just a few meters of peat depth, cattails can thrive and deliver usable biomass—all while keeping the soil wet and protecting the peat layer.
+          </p>
+          <a href="https://www.moorwissen.de/prima-en.html" class="mt-4 inline-block text-center bg-gradient-to-r from-green-200 to-cyan-400 text-black font-medium px-4 py-2 rounded-full hover:shadow-md transition">
+            Learn More
+          </a>
+        </div>
       </div>
-    </div>
 
-    <!-- Story 3 -->
-    <div class="flex items-start bg-gray-100 rounded-2xl p-6">
-      <img
-        src="https://northsearegion.eu/media/17869/img_2662.jpg?width=920&height=517.5"
-        alt="Ralf Betge"
-        class="w-20 h-20 rounded-full object-cover flex-shrink-0 mr-6"
-      />
-      <div class="text-gray-800">
-        <h2 class="text-xl font-semibold">Ralf Betge — Benz, Germany</h2>
-        <p class="mt-2 italic">
-          Ralf Betge, based in Benz on Usedom Island, is a reed harvester and processor. Transitioning from traditional thatching, he now manages approximately 70 hectares of wet land and harvests reed beds, supplying local materials for roofing and contributing to sustainable land use.
-        </p>
+      <!-- Story 2 -->
+      <div class="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col">
+        <div class="h-48 bg-cover bg-center" style="background-image:url('https://northsearegion.eu/media/17869/img_2662.jpg?width=920&height=517.5')"></div>
+        <div class="p-6 flex-1 flex flex-col">
+          <h2 class="text-xl font-semibold text-green-700 mb-2">
+            Sphagnum Farming at Hankhauser Moor (Ammerland, Lower Saxony)
+          </h2>
+          <p class="text-gray-700 flex-1">
+            Inspired by a Canadian “moss-layer transfer” technique, the first German pilot for Sphagnum (peat moss) cultivation launched in 2004 on a 1 200 m² cut-over bog. After a decade of research, the site grew to 17 ha by 2020—showing that moss can be propagated on rewetted farmland to produce peat-free substrates, restore water balance and create new income streams from specialty peat-moss products.
+          </p>
+          <a href="https://moorwissen.de/moosweit.html" class="mt-4 inline-block text-center bg-gradient-to-r from-green-200 to-cyan-400 text-black font-medium px-4 py-2 rounded-full hover:shadow-md transition">
+            Learn More
+          </a>
+        </div>
       </div>
-    </div>
 
-    <!-- Story 4 -->
-    <div class="flex items-start bg-yellow-100 rounded-2xl p-6">
-      <img
-        src="https://northsearegion.eu/media/17869/img_2662.jpg?width=920&height=517.5"
-        alt="Regan Family"
-        class="w-20 h-20 rounded-full object-cover flex-shrink-0 mr-6"
-      />
-      <div class="text-gray-800">
-        <h2 class="text-xl font-semibold">Regan Family — Gortavally, Ireland</h2>
-        <p class="mt-2 italic">
-          The Regan family operates Ireland’s first on-farm paludiculture trial at their farm in Gortavally. As part of the “Peatlands for Prosperity” project by Green Restoration Ireland, they cultivate wetland crops on rewetted peatlands, aiming to demonstrate sustainable agricultural practices that preserve peat soils and reduce CO₂ emissions.
-        </p>
+      <!-- Story 3 -->
+      <div class="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col">
+        <div class="h-48 bg-cover bg-center" style="background-image:url('https://northsearegion.eu/media/17869/img_2662.jpg?width=920&height=517.5')"></div>
+        <div class="p-6 flex-1 flex flex-col">
+          <h2 class="text-xl font-semibold text-green-700 mb-2">
+            Large-Scale Rewetting &amp; Grazing in the Gundelfinger Moos (Bavaria)
+          </h2>
+          <p class="text-gray-700 flex-1">
+            The ARGE Donaumoos partnership set out to rewet some 600 ha of historic floodplain grassland, restoring a near-surface water table and then introducing extensive grazing by hardy breeds (e.g. Highland cattle, water buffalo). Through a framework agreement with over 300 landowners, they secured voluntary compensation and built trust—proving that, even across large areas, rewetting plus grazing can cut greenhouse-gas emissions, enhance biodiversity and keep family farms thriving.
+          </p>
+          <a href="https://www.arge-donaumoos.de/arge/historie/" class="mt-4 inline-block text-center bg-gradient-to-r from-green-200 to-cyan-400 text-black font-medium px-4 py-2 rounded-full hover:shadow-md transition">
+            Learn More
+          </a>
+        </div>
       </div>
-    </div>
 
+    </div>
   </div>
 </section>
 {% endblock %}

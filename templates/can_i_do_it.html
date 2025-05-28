@@ -9,75 +9,73 @@
 <div class="min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-emerald-50">
 
   <!-- Hero Section -->
-  <section class="relative overflow-hidden bg-gradient-to-r from-green-600 to-blue-600 text-white">
+  <section class="relative overflow-hidden bg-gradient-to-r from-green-200 to-cyan-400 text-white">
     <div class="absolute inset-0 bg-black/10"></div>
     <div class="relative max-w-7xl mx-auto px-6 py-16 text-center">
-      <h1 class="text-5xl font-bold mb-6">Paludiculture Assessment Tool</h1>
-      <p class="text-xl mb-8 opacity-90">
+      <h1 class="text-5xl font-bold text-green-800 mb-6">Paludiculture Assessment Tool</h1>
+      <p class="text-xl text-black mb-8 opacity-90">
         Discover if your land is suitable for sustainable wet farming and unlock the potential of peatland agriculture
       </p>
-      <div class="flex justify-center gap-4">
-        <span class="inline-flex items-center bg-white/90 text-green-700 px-3 py-1 rounded-full">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a2 2 0 002 2h12a2 2 0 002-2v-1"/>
-          </svg>
-          Sustainable Farming
-        </span>
-        <span class="inline-flex items-center bg-white/90 text-blue-700 px-3 py-1 rounded-full">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c.778 0 1.556.28 2.144.868M12 8c-.778 0-1.556.28-2.144.868M12 8v8"/>
-          </svg>
-          Climate Positive
-        </span>
-      </div>
     </div>
   </section>
 
   <!-- Main Content with Tabs -->
   <section x-data="assessmentTool()" class="max-w-7xl mx-auto px-6 py-12 space-y-8">
     <!-- Tab Triggers -->
-    <div class="grid grid-cols-4 gap-4 mb-8">
-      <button
-        @click="tab = 'assessment'"
-        :class="tab==='assessment' ? 'bg-green-600 text-white' : 'bg-white text-green-600'"
-        class="flex items-center justify-center gap-2 p-3 rounded-full border border-green-600"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-        </svg>
-        Assessment
-      </button>
-      <button
-        @click="tab = 'crops'"
-        :class="tab==='crops' ? 'bg-green-600 text-white' : 'bg-white text-green-600'"
-        class="flex items-center justify-center gap-2 p-3 rounded-full border border-green-600"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-        </svg>
-        Crop Options
-      </button>
-      <button
-        @click="tab = 'costs'"
-        :class="tab==='costs' ? 'bg-green-600 text-white' : 'bg-white text-green-600'"
-        class="flex items-center justify-center gap-2 p-3 rounded-full border border-green-600"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v8"/>
-        </svg>
-        Economics
-      </button>
-      <button
-        @click="tab = 'implementation'"
-        :class="tab==='implementation' ? 'bg-green-600 text-white' : 'bg-white text-green-600'"
-        class="flex items-center justify-center gap-2 p-3 rounded-full border border-green-600"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7h18M3 12h18M3 17h18"/>
-        </svg>
-        Implementation
-      </button>
-    </div>
+<div class="grid grid-cols-4 gap-4 mb-8">
+  <button
+    @click="tab = 'assessment'"
+    :class="tab==='assessment' ? 'bg-green-600 text-white' : 'bg-white text-green-600'"
+    class="flex items-center justify-center gap-2 p-3 rounded-full border border-green-600"
+  >
+    <img
+      src="{{ url_for('static', filename='farm.svg') }}"
+      alt="Farm icon"
+      class="w-5 h-5"
+    />
+    Land Suitability
+  </button>
+
+  <button
+    @click="tab = 'crops'"
+    :class="tab==='crops' ? 'bg-green-600 text-white' : 'bg-white text-green-600'"
+    class="flex items-center justify-center gap-2 p-3 rounded-full border border-green-600"
+  >
+    <img
+      src="{{ url_for('static', filename='plant-crops.svg') }}"
+      alt="Crops icon"
+      class="w-5 h-5"
+    />
+    Crop Options
+  </button>
+
+  <button
+    @click="tab = 'costs'"
+    :class="tab==='costs' ? 'bg-green-600 text-white' : 'bg-white text-green-600'"
+    class="flex items-center justify-center gap-2 p-3 rounded-full border border-green-600"
+  >
+    <img
+      src="{{ url_for('static', filename='money-bag.svg') }}"
+      alt="Money bag icon"
+      class="w-5 h-5"
+    />
+    Economics
+  </button>
+
+  <button
+    @click="tab = 'implementation'"
+    :class="tab==='implementation' ? 'bg-green-600 text-white' : 'bg-white text-green-600'"
+    class="flex items-center justify-center gap-2 p-3 rounded-full border border-green-600"
+  >
+    <img
+      src="{{ url_for('static', filename='hand-money-cash-hold.svg') }}"
+      alt="Money hand icon"
+      class="w-5 h-5"
+    />
+    Funding & Support
+  </button>
+</div>
+
 
     <!-- Assessment Tab -->
     <div x-show="tab==='assessment'" class="space-y-8">
@@ -171,31 +169,487 @@
           </div>
         </template>
       </div>
-      <div class="bg-white rounded-2xl shadow-lg overflow-x-auto">
-        <table class="min-w-full text-left">
-          <thead class="bg-green-100">
-            <tr>
-              <th class="px-4 py-2">Crop Type</th>
-              <th class="px-4 py-2">Biomass Yield/Year</th>
-              <th class="px-4 py-2">Setup Cost</th>
-              <th class="px-4 py-2">Water Needs</th>
-            </tr>
-          </thead>
-          <tbody>
-            <template x-for="(data,key) in cropData" :key="key">
-              <tr class="border-t hover:bg-gray-50">
-                <td class="px-4 py-2 font-medium" x-text="key.replace('_',' ')"></td>
-                <td class="px-4 py-2" x-text="data.yield"></td>
-                <td class="px-4 py-2" x-text="data.cost"></td>
-                <td class="px-4 py-2" x-text="data.water"></td>
-              </tr>
-            </template>
-          </tbody>
-        </table>
+      <!-- Paste this inside your “Crop Options” tab, after the existing crop‐data table -->
+
+<div class="space-y-2 mt-8">
+    <h4 class="text-xl font-semibold text-green-700">
+      Applications &amp; Suitability of Wetland Biomass
+    </h4>
+    <p class="text-gray-700 text-sm max-w-3xl">
+      This table shows how ready and suitable each wetland crop is for different uses.  
+      <span class="font-semibold">+ / ++</span> means prototype stage (+) or already in larger-scale use (++).  
+      <span class="font-semibold text-green-700">Green</span> cells signal high potential;  
+      <span class="font-semibold text-yellow-600">Yellow</span> cells mean limited potential (needs tweaks or niche use);  
+      empty cells are not suitable or not yet evaluated.  
+      Based on expert assessments of current practice.
+    </p>
+  </div>      <div class="bg-white rounded-2xl shadow-lg overflow-x-auto mt-8">
+  <table class="min-w-full text-left text-sm">
+    <thead>
+      <tr class="bg-yellow-500 text-white">
+        <th class="px-4 py-2">Culture / Biomass</th>
+        <th class="px-4 py-2">Peat moss</th>
+        <th class="px-4 py-2">Sundew</th>
+        <th class="px-4 py-2">Common reed</th>
+        <th class="px-4 py-2">Cattail</th>
+        <th class="px-4 py-2">Reed canary grass</th>
+        <th class="px-4 py-2">Alder</th>
+        <th class="px-4 py-2">Wet meadows</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="border-t">
+        <td class="px-4 py-2">Animal-based uses</td>
+        <td class="px-4 py-2"></td>
+        <td class="px-4 py-2"></td>
+        <td class="px-4 py-2 bg-yellow-100 text-center">+</td>
+        <td class="px-4 py-2 bg-yellow-100 text-center">+</td>
+        <td class="px-4 py-2 bg-green-100 text-center">++</td>
+        <td class="px-4 py-2"></td>
+        <td class="px-4 py-2 bg-green-100 text-center">++</td>
+      </tr>
+      <tr class="border-t">
+        <td class="px-4 py-2">Biogas (wet fermentation)</td>
+        <td class="px-4 py-2"></td>
+        <td class="px-4 py-2"></td>
+        <td class="px-4 py-2 bg-yellow-100 text-center">+</td>
+        <td class="px-4 py-2 bg-yellow-100 text-center">+</td>
+        <td class="px-4 py-2 bg-yellow-100 text-center">+</td>
+        <td class="px-4 py-2"></td>
+        <td class="px-4 py-2 bg-green-100 text-center">++</td>
+      </tr>
+      <tr class="border-t">
+        <td class="px-4 py-2">Biogas (dry fermentation)</td>
+        <td class="px-4 py-2"></td>
+        <td class="px-4 py-2"></td>
+        <td class="px-4 py-2"></td>
+        <td class="px-4 py-2"></td>
+        <td class="px-4 py-2 bg-yellow-100 text-center">+</td>
+        <td class="px-4 py-2"></td>
+        <td class="px-4 py-2"></td>
+      </tr>
+      <tr class="border-t">
+        <td class="px-4 py-2">Combustion</td>
+        <td class="px-4 py-2"></td>
+        <td class="px-4 py-2 bg-green-100 text-center">+</td>
+        <td class="px-4 py-2"></td>
+        <td class="px-4 py-2 bg-green-100 text-center">++</td>
+        <td class="px-4 py-2"></td>
+        <td class="px-4 py-2 text-center">+</td>
+        <td class="px-4 py-2 bg-green-100 text-center">++</td>
+      </tr>
+      <tr class="border-t">
+        <td class="px-4 py-2">Construction &amp; insulation materials</td>
+        <td class="px-4 py-2"></td>
+        <td class="px-4 py-2"></td>
+        <td class="px-4 py-2 bg-green-100 text-center">++</td>
+        <td class="px-4 py-2 bg-green-100 text-center">+</td>
+        <td class="px-4 py-2 bg-green-100 text-center">+</td>
+        <td class="px-4 py-2 bg-green-100 text-center">+</td>
+        <td class="px-4 py-2 bg-green-100 text-center">+</td>
+      </tr>
+      <tr class="border-t">
+        <td class="px-4 py-2">Panel material (furniture)</td>
+        <td class="px-4 py-2"></td>
+        <td class="px-4 py-2"></td>
+        <td class="px-4 py-2 bg-green-100 text-center">+</td>
+        <td class="px-4 py-2 bg-green-100 text-center">+</td>
+        <td class="px-4 py-2 bg-green-100 text-center">++</td>
+        <td class="px-4 py-2"></td>
+        <td class="px-4 py-2 bg-green-100 text-center">+</td>
+      </tr>
+      <tr class="border-t">
+        <td class="px-4 py-2">Paper &amp; molded parts</td>
+        <td class="px-4 py-2"></td>
+        <td class="px-4 py-2"></td>
+        <td class="px-4 py-2 bg-green-100 text-center">+</td>
+        <td class="px-4 py-2 bg-green-100 text-center">+</td>
+        <td class="px-4 py-2 bg-green-100 text-center">+</td>
+        <td class="px-4 py-2"></td>
+        <td class="px-4 py-2 bg-green-100 text-center">+</td>
+      </tr>
+      <tr class="border-t">
+        <td class="px-4 py-2">Platform chemicals</td>
+        <td class="px-4 py-2"></td>
+        <td class="px-4 py-2"></td>
+        <td class="px-4 py-2 bg-yellow-100 text-center">+</td>
+        <td class="px-4 py-2 bg-yellow-100 text-center">+</td>
+        <td class="px-4 py-2 bg-yellow-100 text-center">+</td>
+        <td class="px-4 py-2"></td>
+        <td class="px-4 py-2 bg-yellow-100 text-center">+</td>
+      </tr>
+      <tr class="border-t">
+        <td class="px-4 py-2">Biochar &amp; activated carbon</td>
+        <td class="px-4 py-2"></td>
+        <td class="px-4 py-2"></td>
+        <td class="px-4 py-2 bg-yellow-100 text-center">+</td>
+        <td class="px-4 py-2"></td>
+        <td class="px-4 py-2 bg-yellow-100 text-center">+</td>
+        <td class="px-4 py-2"></td>
+        <td class="px-4 py-2 bg-yellow-100 text-center">+</td>
+      </tr>
+      <tr class="border-t">
+        <td class="px-4 py-2">Substrates &amp; soils</td>
+        <td class="px-4 py-2 bg-green-100 text-center">++</td>
+        <td class="px-4 py-2"></td>
+        <td class="px-4 py-2 bg-green-100 text-center">+</td>
+        <td class="px-4 py-2 bg-green-100 text-center">+</td>
+        <td class="px-4 py-2 bg-green-100 text-center">+</td>
+        <td class="px-4 py-2"></td>
+        <td class="px-4 py-2 bg-yellow-100 text-center">+</td>
+      </tr>
+      <tr class="border-t">
+        <td class="px-4 py-2">Medical applications</td>
+        <td class="px-4 py-2"></td>
+        <td class="px-4 py-2 bg-green-100 text-center">+</td>
+        <td class="px-4 py-2"></td>
+        <td class="px-4 py-2"></td>
+        <td class="px-4 py-2"></td>
+        <td class="px-4 py-2"></td>
+        <td class="px-4 py-2"></td>
+      </tr>
+      <tr class="border-t">
+        <td class="px-4 py-2">Phytomining</td>
+        <td class="px-4 py-2"></td>
+        <td class="px-4 py-2"></td>
+        <td class="px-4 py-2"></td>
+        <td class="px-4 py-2"></td>
+        <td class="px-4 py-2 bg-yellow-100 text-center">+</td>
+        <td class="px-4 py-2"></td>
+        <td class="px-4 py-2 bg-yellow-100 text-center">+</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+    </div>
+
+    
+
+    <!-- Economics Tab -->
+<div x-show="tab==='costs'" class="space-y-8">
+  <div class="grid md:grid-cols-2 gap-8">
+
+    <!-- Cost Calculator Card -->
+    <div class="rounded-2xl bg-white shadow-xl overflow-hidden">
+      <!-- Header -->
+      <div class="bg-gradient-to-r from-green-500 to-emerald-500 text-white px-6 py-4">
+        <div class="flex items-center gap-3 text-lg font-semibold">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none"
+               viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2"/>
+          </svg>
+          Cost Calculator
+        </div>
+      </div>
+      <!-- Body -->
+      <div class="p-6">
+        <div class="space-y-4">
+          <div>
+            <label class="block text-sm font-medium mb-2">Land Size (ha)</label>
+            <input
+              type="number"
+              x-model="landSize"
+              class="w-full p-3 border rounded-lg"
+              placeholder="Enter hectares"
+            />
+          </div>
+          <div>
+            <label class="block text-sm font-medium mb-2">Available Budget (€)</label>
+            <input
+              type="number"
+              x-model="budget"
+              class="w-full p-3 border rounded-lg"
+              placeholder="Enter budget"
+            />
+          </div>
+
+          <!-- Recommendations -->
+          <template x-if="landSize && budget">
+            <div class="mt-6 p-4 bg-blue-50 rounded-lg">
+              <h4 class="font-semibold mb-2">Recommended Options:</h4>
+              <div class="space-y-2 text-sm">
+                <template x-for="(data, key) in cropData" :key="key">
+                  <div
+                    :class="(
+                      (parseInt(
+                        data.cost.match(/€([\d,]+)/)[1].replace(',', '')
+                      ) * parseFloat(landSize) <= parseFloat(budget)
+                        ? 'text-green-600'
+                        : 'text-red-600')
+                      + ' flex justify-between'
+                    )"
+                  >
+                    <span class="capitalize" x-text="key"></span>
+                    <span>
+                      €<span x-text="(
+                        parseInt(
+                          data.cost.match(/€([\d,]+)/)[1].replace(',', '')
+                        ) * parseFloat(landSize)
+                      ).toLocaleString()"></span>
+                      <span x-text="(
+                        parseInt(
+                          data.cost.match(/€([\d,]+)/)[1].replace(',', '')
+                        ) * parseFloat(landSize)
+                      ) <= parseFloat(budget) ? '✓' : '✗'"></span>
+                    </span>
+                  </div>
+                </template>
+              </div>
+            </div>
+          </template>
+        </div>
+      </div>
+    </div>
+    
+
+    <!-- Cost Breakdown Card -->
+    <div class="rounded-2xl bg-white shadow-xl overflow-hidden">
+      <!-- Header -->
+      <div class="px-6 py-4">
+        <h3 class="text-lg font-semibold">Cost Breakdown</h3>
+      </div>
+      <!-- Body -->
+      <div class="p-6 space-y-6 text-sm">
+        <div>
+          <h4 class="font-semibold mb-3">One-time Establishment Costs</h4>
+          <div class="space-y-2">
+            <div class="flex justify-between">
+              <span>Site preparation &amp; rewetting:</span>
+              <span>€1,000–€5,000/ha</span>
+            </div>
+            <div class="flex justify-between">
+              <span>Planting/seeding:</span>
+              <span>€500–€10,000/ha</span>
+            </div>
+            <div class="flex justify-between">
+              <span>Infrastructure:</span>
+              <span>€500–€15,000/ha</span>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h4 class="font-semibold mb-3">Annual Operating Costs</h4>
+          <div class="space-y-2">
+            <div class="flex justify-between">
+              <span>Water management:</span>
+              <span>€800–€2,500/ha</span>
+            </div>
+            <div class="flex justify-between">
+              <span>Maintenance:</span>
+              <span>€200–€800/ha</span>
+            </div>
+            <div class="flex justify-between">
+              <span>Harvest:</span>
+              <span>€400–€1,600/ha</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+        <!-- Transition: Title + Description -->
+  <div class="md:col-span-3 mt-8 space-y-2">
+    <h3 class="text-xl font-semibold text-green-700">
+      Market Prices &amp; Yields
+    </h3>
+    <p class="text-gray-700 text-sm max-w-3xl">
+      Explore current yields, raw-material prices and annual revenues for each biomass type.  
+      Click a crop below to narrow the table to just that category.
+    </p>
+  </div>
+
+  <!-- Market Prices & Yields (interactive) -->
+  <div
+    class="rounded-2xl bg-white shadow-xl overflow-hidden md:col-span-3"
+    x-data="{
+      filter: '',
+      activeCategory: '',
+      categories: ['reed','cattail','sphagnum','alder','grassland'],
+      rows: [
+        { name: 'Common reed (thatching, panels)',    category: 'reed',      yield: '≈ 500 bundles',  price: '30–450 €/t',    revenue: '≈ 1 000 €' },
+        { name: 'Alder (stem wood, firewood)',        category: 'alder',     yield: '2.7–3.2 Vfm',    price: '40–54 €/Efm',    revenue: '61–195 € / 86–122 €' },
+        { name: 'Peat moss (substrate, orchids, seed)',category: 'sphagnum',  yield: '50–200 m³/yr',    price: '25–750 €/m³',    revenue: '1 250–150 000 €' },
+        { name: 'Sundew (wild, distillate, farming)',  category: 'sphagnum',  yield: '0.3–405 kg FM',   price: '160–1 000 €/kg FM', revenue: '48–405 000 €' },
+        { name: 'Wet-meadow hay',                     category: 'grassland', yield: '2–4 t DM',       price: '50–70 €/t',      revenue: '100–280 €' },
+        { name: 'Straw (compare)',                    category: 'grassland', yield: '–',               price: '80–100 €/t',     revenue: '–' },
+        { name: 'Biogas substrate (wet)',             category: 'cattail',   yield: '3–8 t DM',       price: '10–35 €/t FM',   revenue: 'Ø 100 / max 600 €' },
+        { name: 'Bedding (sows)',                     category: 'grassland', yield: '3–8 t DM',       price: '< 65 €/t',       revenue: '195–520 €' },
+        { name: 'Straw pellets',                      category: 'grassland', yield: '–',               price: '0.3 €/kg',       revenue: '–' },
+        { name: 'Horse hay',                          category: 'grassland', yield: '3–8 t DM',       price: '100–130 €/t',    revenue: '300–1 040 €' },
+        { name: 'Water buffalo (grazing)',            category: 'grassland', yield: '0.6–1.2 GV',     price: '6–13 €/kg',      revenue: '500–2 000 €' },
+        { name: 'Buffalo breeding',                   category: 'grassland', yield: '–',               price: '2 000–2 500 €/animal', revenue: '580–1 000 €' },
+        { name: 'Robust cattle',                      category: 'grassland', yield: '0.8–1.5 GV',     price: '–',               revenue: '1 079–1 214 €' }
+      ]
+    }"
+  >
+
+    <!-- Crop-type chips -->
+    <div class="px-4 pt-4">
+      <div class="flex flex-wrap gap-2">
+        <template x-for="cat in categories" :key="cat">
+          <button
+            @click="activeCategory = (activeCategory===cat ? '' : cat)"
+            :class="activeCategory===cat
+              ? 'bg-green-600 text-white'
+              : 'bg-gray-100 text-gray-700'"
+            class="px-3 py-1 rounded-full text-sm font-medium capitalize"
+            x-text="cat"
+          ></button>
+        </template>
       </div>
     </div>
 
-    <!-- Economics & Implementation tabs can follow similarly... -->
+    <!-- Text search filter -->
+    <div class="p-4 bg-gray-50 border-b">
+      <label class="mr-2 text-sm font-medium">Search:</label>
+      <input
+        x-model="filter"
+        class="px-2 py-1 border rounded w-1/3"
+        placeholder="Type to search..."
+      />
+    </div>
+
+    <!-- Data table -->
+    <div class="overflow-x-auto">
+      <table class="min-w-full text-left text-sm">
+        <thead>
+          <tr class="bg-green-600 text-white">
+            <th class="px-4 py-2">Product</th>
+            <th class="px-4 py-2">Yield / ha</th>
+            <th class="px-4 py-2">Price</th>
+            <th class="px-4 py-2">Revenue / ha·yr</th>
+          </tr>
+        </thead>
+        <tbody>
+          <template
+            x-for="row in rows
+              .filter(r => !activeCategory || r.category === activeCategory)
+              .filter(r => r.name.toLowerCase().includes(filter.toLowerCase()))"
+            :key="row.name"
+          >
+            <tr class="border-t hover:bg-gray-100">
+              <td class="px-4 py-2" x-text="row.name"></td>
+              <td class="px-4 py-2" x-text="row.yield"></td>
+              <td class="px-4 py-2" x-text="row.price"></td>
+              <td class="px-4 py-2" x-text="row.revenue"></td>
+            </tr>
+          </template>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+
+
+  </div>
+</div>
+<!-- Funding & Support (interactive) -->
+<div
+  x-show="tab==='implementation'"
+  x-data="{
+    filter: '',
+    activeStage: '',
+    stages: ['Setup','Operation','Processing'],
+    rows: [
+      { stage:'Setup',      component:'Coordination & Communication',         party:'Project sponsors & Public bodies',         finance:'Project grants (EU agri-& structure funds, national/regional)'},
+      { stage:'Setup',      component:'Site research & feasibility studies', party:'Sponsors, Landowners, Public bodies',    finance:'Project grants (EU/national calls)'},
+      { stage:'Setup',      component:'Land acquisition / Rewetting rights',  party:'Project sponsors',                       finance:'EU agri-& structure funds; carbon certificates; compensation schemes'},
+      { stage:'Setup',      component:'Permitting & Planning',               party:'Project sponsors',                       finance:'Project grants (EU/national calls)'},
+      { stage:'Setup',      component:'Land preparation (construction)',      party:'Project sponsors',                       finance:'Project grants (EU/national calls)'},
+      { stage:'Setup',      component:'Water-management infrastructure',     party:'Project sponsors',                       finance:'Project grants (EU/national calls)'},
+      { stage:'Setup',      component:'Establishment (seeding/planting)',    party:'Farmers & Project sponsors',             finance:'EU agri-& structure funds; innovation programmes'},
+
+      { stage:'Operation',  component:'Water management (irrigation)',        party:'Farmers & Sponsors',                     finance:'Agri-environment measures (AUKM, CAP Pillar 2); eco-accounts'},
+      { stage:'Operation',  component:'Stand maintenance & harvest',          party:'Farmers & Sponsors',                     finance:'Biomass revenue; conservation contracts; AUKM'},
+      { stage:'Operation',  component:'Harvest equipment',                    party:'Farmers & Sponsors',                     finance:'Investment programmes for harvest tech'},
+      { stage:'Operation',  component:'Advisory & consulting',                party:'Farmers',                                finance:'AUKM; innovation grants'},
+      { stage:'Operation',  component:'Tech & product R&D',                   party:'Manufacturers, Processors, Research',    finance:'Innovation & R&D programmes'},
+      { stage:'Operation',  component:'Monitoring & evaluation',              party:'Farmers & Sponsors',                     finance:'CAP Pillar 2 agri-environment measures'},
+
+      { stage:'Processing', component:'New processing facilities',            party:'Farm co-ops & Processors',               finance:'Investment & innovation funding'},
+      { stage:'Processing', component:'Product development',                  party:'Companies & Research institutes',        finance:'Innovation grants'},
+      { stage:'Processing', component:'Market approval & access',             party:'Companies & Research institutes',        finance:'Innovation funding'},
+      { stage:'Processing', component:'Product marketing & labelling',        party:'Companies & End users',                  finance:'Labeling & certification schemes'}
+    ]
+  }"
+  class="space-y-6"
+>
+
+  <!-- Header -->
+  <h3 class="text-2xl font-semibold text-green-700">Funding &amp; Support Options</h3>
+  <p class="text-gray-700 text-sm max-w-3xl">
+    Who pays for each stage of paludiculture and which public or private funds are available.
+  </p>
+
+  <!-- Stage Chips -->
+  <div class="flex flex-wrap gap-2">
+    <template x-for="s in stages" :key="s">
+      <button
+        @click="activeStage = (activeStage===s ? '' : s)"
+        :class="activeStage===s
+          ? 'bg-green-600 text-white'
+          : 'bg-gray-100 text-gray-700 hover:bg-gray-200'"
+        class="px-3 py-1 rounded-full text-sm font-medium transition"
+        x-text="s"
+      ></button>
+    </template>
+  </div>
+
+  <!-- Search -->
+  <div class="flex items-center gap-2 bg-gray-50 px-4 py-2 rounded">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-500" fill="none"
+         viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+    </svg>
+    <input
+      x-model="filter"
+      class="flex-1 bg-transparent focus:outline-none text-sm"
+      placeholder="Search component or party..."
+    />
+  </div>
+
+  <!-- Table -->
+  <div class="overflow-x-auto">
+    <table class="min-w-full text-left text-sm border-separate" style="border-spacing:0">
+      <thead class="bg-green-600 text-white sticky top-0">
+        <tr>
+          <th class="px-4 py-2">Stage</th>
+          <th class="px-4 py-2">Cost Component</th>
+          <th class="px-4 py-2">Responsible Party</th>
+          <th class="px-4 py-2">Financing Options</th>
+        </tr>
+      </thead>
+      <tbody>
+        <template
+          x-for="row in rows
+            .filter(r => !activeStage || r.stage === activeStage)
+            .filter(r => r.component.toLowerCase().includes(filter.toLowerCase())
+                      || r.party.toLowerCase().includes(filter.toLowerCase()))"
+          :key="row.stage + row.component"
+        >
+          <tr class="even:bg-white odd:bg-gray-50 hover:bg-gray-100 transition">
+            <td class="px-4 py-3 font-medium" x-text="row.stage"></td>
+            <td class="px-4 py-3" x-text="row.component"></td>
+            <td class="px-4 py-3" x-text="row.party"></td>
+            <td class="px-4 py-3" x-text="row.finance"></td>
+          </tr>
+        </template>
+        <tr x-show="rows
+            .filter(r => !activeStage || r.stage === activeStage)
+            .filter(r => r.component.toLowerCase().includes(filter.toLowerCase())
+                      || r.party.toLowerCase().includes(filter.toLowerCase())).length === 0">
+          <td colspan="4" class="px-4 py-6 text-center text-gray-500">
+            No matching entries.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
 
   </section>
 </div>
